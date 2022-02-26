@@ -1,0 +1,1261 @@
+1. write a program to find the difference between simple interest and 
+compound interest when principal, rate and time are given 
+ci=a-p and a=p*(1+r/100)t,  si=p*r*t/100
+
+Math.pow((1+r/100),t)
+
+
+public class SimpleIntrest
+{
+    public static void main(String args[])
+    {
+        double p, r, t, power, a;
+        double si, ci;
+        t = 2;
+        p = 500;
+        r = 4;
+        si = (p*r*t)/100;
+        power = Math.pow(1+r/100, t);
+        a = p * power;
+        ci = a - p;
+        System.out.println("Simple intrest: " + si);
+        System.out.println("compound intrest: " + ci);
+        System.out.println("Difference of ci and si is: " + (ci - si));
+    }
+}
+
+
+
+
+2. WAP to find the area, perimeter and diagonal of a rectangle
+
+perimeter = 2*(length+breath)
+area=length * breath
+diagonal = sqrt((length*length)+(breath*breath))
+
+
+public class Rectangle
+{
+    public static void main(String args[])
+    {
+        int length, breath;
+        int area, perimeter;
+        double diagonal;
+
+        length = 2; breath = 4;
+        area = perimeter = 0;
+        diagonal = 0.0;
+
+        area = length * breath;
+        perimeter = 2*(length + breath);
+        
+        diagonal = Math.sqrt((length*length)+(breath*breath));
+
+        System.out.println("Area :" + area);
+        System.out.println("Perimeter: " + perimeter);
+        System.out.println("Diagonal: " + (float)diagonal);
+
+    }
+}
+
+
+
+
+
+
+3. A computer manufacturing company anouces a special offer to their customers on purchasing laptops and the printers accordingly:
+   on laptop: Discout = 15%
+   on printers: Discount = 10%
+   WAP to calculate the discount, if a cutomer purchases a laptop and a printer
+
+
+
+public class ComputerDiscount
+{
+    public static void main(String args[])
+    {
+        float laptopPrice = 30000;
+        float printerPrice = 10000;
+
+        int laptopQuantity, printerQuantity;
+        laptopQuantity = printerQuantity = 1;
+
+        float laptopDiscount, printerDiscount;
+        laptopDiscount = 0.15f; printerDiscount = 0.1f;
+
+        float finalLaptopsPrice, finalPrinterPrice;
+        finalLaptopsPrice = laptopPrice * laptopDiscount * laptopQuantity; //4500
+        finalPrinterPrice = printerPrice * printerDiscount * printerQuantity; //1000
+
+        float totalDiscount;
+        totalDiscount = finalLaptopsPrice + finalPrinterPrice;
+        
+
+        System.out.println("Total discount: " + totalDiscount);
+       
+
+
+    }
+}
+
+
+
+
+
+
+4. A retailer offers 10% discount on the price of a Digital Camera. A customer has to pay 6% sales tax on the remaining amount.
+   Write a program to calculate the amount to be paid by the customer, taking the retail price as an input.
+
+
+public class DiscountOnCamera
+{
+    public static void main(String args[])
+    {
+        double retailPrice = 75000;
+        double priceAfterDiscount = retailPrice - (retailPrice * 0.1);
+        double salesTax = priceAfterDiscount * 0.06;
+        System.out.println("Final Amount : " + (priceAfterDiscount + salesTax));
+        
+    }
+}
+
+
+
+
+
+
+5. Mr. X accumulates 3000 shares of a company. 
+  He already had shares of that company valuing  Rs. 10 nominal value, which yield 10% dividend per annum and 
+  received Rs. 2000 as dividend at the end of the year.
+  Write a program to calculate the number of shares he has and how many more shares to be purchased to make the target 
+  [number of shares = (annual dividend *100)/(nominal value * div%)]
+
+
+
+public class Shares
+{
+    public static void main(String args[])
+    {
+        double annualDividend = 2000;
+        double nominalValue = 10;
+        double shares = (annualDividend * 100.0) / (nominalValue * 10.0);
+        System.out.println("No of shares: " + shares);
+        System.out.println("No of shares required: " + (3000.0 - shares));
+    }
+}
+
+
+
+
+
+
+
+
+6. WAP to accept three numbers (positive or negative). if  they are unequal then display the greatest number otherwise, 
+    display they are equal. the program should also display whether the given numbers are 'all positive', 'all negative' or 
+    'the combination of prositive and negative'
+
+
+
+import java.io.*;
+
+public class PostiveOrNegative
+{
+    public static void main(String args[]) throws IOException
+    {
+        InputStreamReader i = new InputStreamReader(System.in);
+        BufferedReader read = new BufferedReader(i);
+
+        int num1, num2, num3;
+        System.out.println("Enter three numbers: ");
+        num1 = Integer.parseInt(read.readLine());
+        num2 = Integer.parseInt(read.readLine());
+        num3 = Integer.parseInt(read.readLine());
+
+
+        if(num1 == num2 && num2 == num3)
+        {
+            System.out.println("All are Equal.");
+        }
+        else
+        {  
+            if(num1 > num2 && num1 > num3) System.out.println(num1);
+            else if(num2 > num3) System.out.println(num2);
+            else System.out.println(num3);
+        }
+
+
+
+        if((num1 > 0) && (num2 > 0) && (num3 > 0))
+        {
+            System.out.println("All are postive");
+        }
+        else if((num1 < 0) && (num2 < 0) && (num3 < 0))
+        {
+            System.out.println("All are negative");
+        }
+        else
+        {
+            System.out.println("Combination of postive and negative numbers");
+        }
+        
+    }
+}
+
+
+
+
+
+
+
+7. Read a two digit number, and WAP to add the sum of the digits to the product of the digits, and the resultant value should be 
+   equal to  the given number
+
+
+import java.io.*;
+
+public class SumAndProductsOfDigits
+{
+    public static void main(String args[]) throws IOException
+    {
+        InputStreamReader i = new InputStreamReader(System.in);
+        BufferedReader read = new BufferedReader(i);
+
+        System.out.println("Enter number: ");
+        int number1 = Integer.parseInt(read.readLine());
+
+        if(!(number1 > 9 && number1 < 100))
+        {
+            System.out.println("Invalid Range");
+            return;
+        }
+        
+        int sumOfDigits = 0;
+        int productOfDigits = 1;
+
+        int temp = number1;
+        while(temp > 0)
+        {
+            int rem = temp % 10;
+            sumOfDigits += rem;
+            productOfDigits *= rem;
+            temp /= 10;
+        }
+
+        // System.out.println(sumOfDigits + "  " + productOfDigits);
+        if(number1 == sumOfDigits + productOfDigits)
+        {
+            System.out.println("Conditions satisified");
+        }
+        else
+        {
+            System.out.println("Conditions are not satisified");
+        }
+    }
+}
+
+
+
+
+
+
+8. A library charges a fine for books returned late
+   first five days - Rs. 2/-
+   six to ten days - Rs. 4/-
+   Above ten days - Rs. 6/-
+   WAP to calculate the fine assuming that a book is returned n days late.
+
+
+
+import java.io.*;
+
+public class LibraryFine
+{
+    public static void main(String args[]) throws IOException
+    {
+        InputStreamReader i = new InputStreamReader(System.in);
+        BufferedReader read = new BufferedReader(i);
+
+        System.out.println("Enter no of days: ");
+        int n = Integer.parseInt(read.readLine());
+
+        if(n <= 5)
+        {
+            System.out.println("Fine = " + (n*2));
+        }
+        else if(n <= 10)
+        {
+            System.out.println("Fine = " + (((n-5) * 4) + 10));
+        }
+        else
+        {
+            System.out.println("Fine = " + ((5*4) + (5*2) + ((n-10) * 6)));
+        }
+    }
+}
+
+
+
+
+
+9. Menu driven program to print n even, odd , and prime number;
+
+
+import java.io.*;
+
+public class OddEvenPrime
+{
+    public static void main(String args[]) throws IOException
+    {
+        InputStreamReader i = new InputStreamReader(System.in);
+        BufferedReader read = new BufferedReader(i);
+
+        short choice;
+        int num;
+        boolean flag = true;
+        while(flag)
+        {
+            System.out.println("Choose one from following");
+            System.out.println("0.EXIT");
+            System.out.println("1.Check Even or Odd");
+            System.out.println("2.Check Prime or Not");
+            System.out.print("Enter your Choice: ");
+            choice = Short.parseShort(read.readLine());
+
+            switch(choice)
+            {
+                case 0:
+                    System.out.println("Exiting...");
+                    flag = false;
+                    break;
+                case 1:
+                    System.out.print("Enter Number: ");
+                    num = Integer.parseInt(read.readLine());
+                    if(num % 2 == 0) System.out.println("Even Number");
+                    else System.out.println("Odd Number");
+                    break;
+                case 2:
+                    System.out.print("Enter Number: ");
+                    num = Integer.parseInt(read.readLine());
+                    if(prime(num) == true) System.out.println("Not Prime");
+                    else System.out.println("Prime");
+                    break;
+                default:
+                    System.out.println("Invalid Choice");
+            }
+            System.out.println();
+            System.out.println();
+        }
+        
+    }
+    
+    
+    public static boolean prime(int number)
+    {
+        if(number == 1) return true;
+        else
+        {
+            for(int i=2; i<number; i++)
+            {
+                if(number % i == 0) return true;
+            }
+        }
+        return false;
+    }
+}
+
+
+
+
+
+10. Write a program to accept three different single digit numbers between 1 and 9. 
+    Display the greatest and smallest three digit number (example: I/P is 2, 7, 4 and O/P is 247) using if condition.
+
+
+import java.io.*;
+
+
+public class SmallestAndGreatest
+{
+    public static void main(String args[]) throws IOException
+    {
+        InputStreamReader inp = new InputStreamReader(System.in);
+        BufferedReader read = new BufferedReader(inp);
+
+        System.out.println("Enter three numbers ");
+        short num1 = Short.parseShort(read.readLine());
+        short num2 = Short.parseShort(read.readLine());
+        short num3 = Short.parseShort(read.readLine());
+
+        if((num1 > 0 && num1 < 10) && (num2 > 0 && num2 < 10) && (num3 > 0 && num3 < 10))
+        {
+            if(num1 > num2 && num1 > num3)
+            {
+                if(num2 > num3)
+                {
+                    System.out.println("Smallest digit: " + num3+num2+num1);
+                    System.out.println("Greatest digit: " + num1+num2+num3);
+                }
+                else
+                {
+                    System.out.println("Smallest digit: " + num2+num3+num1);
+                    System.out.println("Greatest digit: " + num1+num3+num2);
+                }
+            }
+            else if(num2 > num3)
+            {
+                if(num1 > num3)
+                {
+                    System.out.println("Smallest digit: " + num3+num1+num2);
+                    System.out.println("Greatest digit: " + num2+num1+num3);
+                }
+                else
+                {
+                    System.out.println("Smallest digit: " + num1+num3+num2);
+                    System.out.println("Greatest digit: " + num2+num3+num1);
+                }
+            }
+            else
+            {
+                if(num1 > num2)
+                {
+                    System.out.println("Smallest digit: " + num2+num1+num3);
+                    System.out.println("Greatest digit: " + num3+num1+num2);
+                }
+                else
+                {
+                    System.out.println("Smallest digit: " + num1+num2+num3);
+                    System.out.println("Greatest digit: " + num3+num2+num1);
+                }
+            }
+        }
+        else
+        {
+            System.out.println("Invalid range");
+        }
+    }
+}
+
+
+
+
+
+11. The grades are assigned to student based on the average they have gained. WAP to accpet the marks from user 
+    calculate the average and display their grades
+    90% and above O 
+    80 - 89  A+ 
+    70 - 79  A 
+    60 - 69 B+
+    50 - 59 B
+    45 - 49 C
+    40 - 44 P
+    <40     F
+
+
+import java.io.*;
+
+public class StudentGrades
+{
+    public static void main(String args[]) throws IOException
+    {
+
+        InputStreamReader inp = new InputStreamReader(System.in);
+        BufferedReader read = new BufferedReader(inp);
+        int sub1, sub2, sub3, sub4, sub5, total;
+
+        int avg;
+
+        System.out.println("Enter 5 subjects marks");
+        sub2 = Integer.parseInt(read.readLine());
+        sub1 = Integer.parseInt(read.readLine());
+        sub3 = Integer.parseInt(read.readLine());
+        sub4 = Integer.parseInt(read.readLine());
+        sub5 = Integer.parseInt(read.readLine());
+
+        total = (sub1 + sub2 + sub3 + sub4 + sub5);
+        avg = total/5;
+
+        System.out.println();
+        System.out.print("Grade : ");
+        if(avg > 89) System.out.println("O");
+        else if(avg > 79) System.out.println("A+");
+        else if(avg > 69) System.out.println("A");
+        else if(avg > 59) System.out.println("B+");
+        else if(avg > 49) System.out.println("B");
+        else if(avg > 44) System.out.println("C");
+        else if(avg >= 40) System.out.println("P");
+        else System.out.println("F");
+    }
+}
+
+
+12 Calculate the GPA and CGPA that particular student has gaineed
+
+import java.io.*;
+
+
+class Students
+{
+    int id;
+    int sub1;
+    int sub2;
+    int sub3;
+    int sub4;
+    int sub5;
+    static int sub1Credits = 2;
+    static int sub2Credits = 3;
+    static int sub3Credits = 4;
+    static int sub4Credits = 5;
+    static int sub5Credits = 6;
+
+    InputStreamReader inp = new InputStreamReader(System.in);
+    BufferedReader read = new BufferedReader(inp);
+
+    public void getInput() throws IOException
+    {
+        System.out.print("Enter Student id: ");
+        id = Integer.parseInt(read.readLine());
+        System.out.println("Enter five subject marks ");
+        sub1 = Integer.parseInt(read.readLine());
+        sub2 = Integer.parseInt(read.readLine());
+        sub3 = Integer.parseInt(read.readLine());
+        sub4 = Integer.parseInt(read.readLine());
+        sub5 = Integer.parseInt(read.readLine());
+
+    }
+
+    public int findGradePoint(int marks)
+    {
+        if(marks > 89) return 10;
+        else if(marks > 79) return 9;
+        else if(marks > 69) return 8;
+        else if(marks > 59) return 7;
+        else if(marks > 49) return 6;
+        else if(marks > 44) return 5;
+        else if(marks >= 40)return 4;
+        else return 0;
+    }
+
+    public float gpa(int sub1, int sub2, int sub3, int sub4, int sub5)
+    {
+        
+        return (((sub1Credits*findGradePoint(sub1)) + (sub2Credits*findGradePoint(sub2)) + (sub3Credits*findGradePoint(sub3)) +
+                (sub4Credits*findGradePoint(sub4)) + (sub5Credits*findGradePoint(sub5))) /
+                 (float)(sub1Credits + sub2Credits +sub3Credits + sub4Credits +sub5Credits)) ;
+    }
+}
+public class GpaAndCgpa
+{
+    public static void main(String args[]) throws IOException
+    {
+        
+        Students s1 = new Students();
+        s1.getInput();
+
+        Students s2 = new Students();
+        s2.getInput();
+
+        float sem1Gpa = s1.gpa(s1.sub1, s1.sub2, s1.sub3, s1.sub4, s1.sub5);
+        float sem2Gpa = s2.gpa(s2.sub1, s2.sub2, s2.sub3, s2.sub4, s2.sub5);
+
+        System.out.println("SEM1 GPA: " + sem1Gpa);
+        System.out.println("SEM2 GPA: " + sem2Gpa);
+        System.out.println("CGPA: " + (sem1Gpa + sem2Gpa)/ (2));
+
+
+    }
+}
+   
+
+
+
+13) WAP to print the Pattern
+
+*    *
+**  **
+******
+**  **
+*    *
+
+
+public class Pattern1
+{
+    public static void main(String args[])
+    {
+        int a,b;
+        a = 1; b = 6;
+        for(int i=1; i<=5; i++)
+        {
+            if(i<=3)
+            {  
+                for(int j=1; j<=6; j++)
+                {
+                    if(j<=a || j>=b)
+                    {
+                        System.out.print("*");
+                    }
+                    else
+                    {
+                        System.out.print(" ");
+                    }
+                }
+                a++; b--;
+            }
+            else
+            {
+                a++; b--;
+                for(int j=1; j<=6; j++)
+                {
+                    if(j<=b || j>=a)
+                    {
+                        System.out.print("*");
+                    }
+                    else
+                    {
+                        System.out.print(" ");
+                    }
+                }
+                
+            }
+            
+            System.out.println();
+        }
+
+    }
+}
+
+
+
+14) WAP to print the Pattern
+
+   *        
+  * *       
+ * * *      
+* * * *
+ * * *
+  * *
+   *
+
+
+
+public class Pattern2
+{
+    public  static void main(String args[])
+    {
+        int x = 4;
+        int first, last;
+        first = x;
+        last = x;
+        for(int i=0; i<7; i++)
+        {
+            for(int j=1; j<=7; j++)
+            {
+                if(i<x)
+                {
+                    if(j>= first && j <= last)
+                    {
+                        if(i%2 == 0)
+                        {
+                            if(j%2 == 0)
+                            {
+                                System.out.print(j);
+                            }
+                            else
+                            {
+                                System.out.print(" ");
+                            }
+                        }
+                        else
+                        {
+                            if(j%2 != 0)
+                            {
+                                System.out.print(j);
+                            }
+                            else
+                            {
+                                System.out.print(" ");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        System.out.print(" ");
+                    }
+
+                }
+                else
+                {
+                    if(j>=first && j <=last)
+                    {
+                        if(i%2 == 0)
+                        {
+                            if(j%2 == 0)
+                            {
+                                System.out.print(j);
+                            }
+                            else
+                            {
+                                System.out.print(" ");
+                            }
+                        }
+                        else
+                        {
+                            if(j%2 != 0)
+                            {
+                                System.out.print(j);
+                            }
+                            else
+                            {
+                                System.out.print(" ");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        System.out.print(" ");
+                    }
+
+                }
+            }
+            System.out.println();
+            if(i<3) 
+            {
+                first--; last++;
+            }
+            else
+            {
+                first++; last--;    
+            }
+        }
+    }
+
+}
+
+
+
+
+
+15) wap to convert the given degres to radian using math functions
+
+import java.io.*;
+
+public class DegreeToRadian
+{
+	public static void main(String args[]) throws IOException
+	{
+		InputStreamReader inp = new InputStreamReader(System.in);
+		BufferedReader read = new BufferedReader(inp);
+		System.out.println("Enter Degrees");
+		float deg = Float.parseFloat(read.readLine());
+		float rad = (float)(deg * Math.PI / 180);
+		System.out.println(rad + "Rad");
+	}
+}
+
+
+
+
+16) WAP to rotate the given matrix
+Ex: 
+10 20 30
+40 50 60
+70 80 90
+OUTPUT:
+30 60 90
+20 50 80
+10 40 70
+
+
+import java.util.Scanner;
+
+public class RotateMatrix
+{
+    public static void main(String args[])
+    {
+        Scanner read = new Scanner(System.in);
+
+        System.out.print("Enter no of rows: ");
+        int m = read.nextInt();
+        
+        System.out.print("Enter no of columns: ");
+        int n = read.nextInt();
+        
+        int arr[][] = new int[m][n];
+
+        System.out.println("Enter array elements ");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<m; j++)
+            {
+                System.out.print("A [" + i + "][" + j + "] ");
+                arr[i][j] = read.nextInt();
+            }
+        }
+
+        System.out.println("Original Matix");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+        System.out.println("Rotated matrix ");
+        for(int i=n-1; i>=0; i--)
+        {
+            for(int j=0; j<m; j++)
+            {
+                System.out.print(arr[j][i] + " ");
+                
+            }System.out.println();
+        }
+    }
+}
+
+
+
+
+
+17) WAP to find the Transose of Given matrix
+
+import java.util.Scanner;
+
+public class TransposeOfMatrix
+{
+    public static void main(String args[])
+    {
+        Scanner read = new Scanner(System.in);
+
+        System.out.println("Enter no of rows ");
+        int m = read.nextInt();
+        System.out.println("Enter no of columns ");
+        int n = read.nextInt();
+
+        int arr[][] = new int[m][n];
+
+        System.out.println("Enter array elements ");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                System.out.print("A [" + i + "][" + j + "] ");
+                arr[i][j] = read.nextInt();
+            }
+        }
+
+        System.out.println("Original Matrix ");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Tanspose of matrix ");
+        for(int i=0; i<n; i++)
+        {
+            for(int j=0; j<m; j++)
+            {
+                System.out.print(arr[j][i] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
+
+
+18)WAP to find the Max and Min Element from the given matric
+
+import java.util.Scanner;
+
+public class MaxAndMinMatrix
+{
+    public static void main(String args[])
+    {
+        Scanner read = new Scanner(System.in);
+
+        System.out.println("Enter no of rows ");
+        int m = read.nextInt();
+        System.out.println("Enter no of columns ");
+        int n = read.nextInt();
+
+        int arr[][] = new int[m][n];
+
+        System.out.println("Enter array elements ");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                System.out.print("A [" + i + "][" + j + "] ");
+                arr[i][j] = read.nextInt();
+            }
+        }
+        System.out.println();
+
+        System.out.println("Original Matrix ");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        int minElement = arr[0][0];
+        int maxElement = arr[0][0];
+
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                minElement = Math.min(minElement, arr[i][j]);
+                maxElement = Math.max(maxElement, arr[i][j]);
+            }
+        }
+
+        System.out.println("minimum element is " + minElement);
+        System.out.println("maximum element is " + maxElement);
+    }
+}
+
+
+
+
+
+ 19) wap to find the max and min of each row in the given matrix and store 
+ them in two different arrays
+
+import java.util.*;
+
+public class MinAndMaxOfEachRow
+{
+    public static void main(String args[])
+    {
+        Scanner read = new Scanner(System.in);
+
+        System.out.println("Enter no of rows ");
+        int m = read.nextInt();
+        System.out.println("Enter no of columns ");
+        int n = read.nextInt();
+
+        int arr[][] = new int[m][n];
+        int minArr[] = new int[m];
+        int maxArr[] = new int[m];
+ 
+        System.out.println("Enter array elements ");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                System.out.print("A [" + i + "][" + j + "] ");
+                arr[i][j] = read.nextInt();
+            }
+        }
+        System.out.println();
+        System.out.println();
+
+        System.out.println("Original Matrix ");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        
+        for(int i=0; i<m; i++)
+        {
+            int minElement = arr[i][0];
+            int maxElement = arr[i][0];
+
+            for(int j=0; j<n; j++)
+            {
+                minElement = Math.min(minElement, arr[i][j]);
+                maxElement = Math.max(maxElement, arr[i][j]);
+                
+            }
+            minArr[i] = minElement;
+            maxArr[i] = maxElement;
+        }
+
+        System.out.print("minimum elements of each row:");
+        for(int i=0; i<m; i++) System.out.print(" " + minArr[i]);
+        System.out.println();
+
+        System.out.print("maximum elements of each row:");
+        for(int i=0; i<m; i++) System.out.print(" " + maxArr[i]);
+        System.out.println();
+    }
+}
+
+
+
+
+
+/*
+ 20) wap considering the below matrix as class room where boys and girls are seated in a row
+    1 1 0 0 1 0
+    0 1 1 1 1 1
+    0 0 1 1 0 0
+    0 0 0 1 1 1
+ You need to find which rows are having equal number of boys(0's) and girls(1's)
+*/
+
+public class BoysAndGirlsInClass
+{
+    public static void main(String args[])
+    {
+        int arr[][] = {
+            {1, 1, 0, 0, 1, 0},
+            {0, 1, 1, 1, 1, 1},
+            {0, 0, 1, 1, 0, 0},
+            {0, 0, 0, 1, 1, 1},
+        };
+
+        for(int i=0; i<4; i++) 
+        {
+            int boys = 0;
+            int girls = 0;
+            for(int j=0; j<6; j++) 
+            {
+                if( boys <= 3 && girls <= 3)
+                {
+                    if(arr[i][j] == 0) boys++;
+                    else girls++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if(boys == girls)
+            {
+                System.out.println(i);
+            }
+        }
+
+    }
+}
+
+
+
+
+/*
+    21)WAP to accept the roll number and name of the student,
+    and search for name by the input as roll no
+*/
+
+import java.util.Scanner;
+
+public class SearchNameByNumber
+{
+    public static void main(String args[])
+    {
+        Scanner read = new Scanner(System.in);
+
+        int rollNo[] = new int[10];
+        String name[] = new String[10];
+
+        for(int i=0; i<5; i++)
+        {
+            
+            System.out.print("Enter roll no: " );
+            rollNo[i] = read.nextInt();
+            System.out.print("Enter name: " ) ;
+            read.nextLine();
+            name[i] = read.nextLine();
+            System.out.println();
+        }
+
+        
+        System.out.print("Enter student roll no: ");
+        int key = read.nextInt();
+        for(int i=0; i<rollNo.length; i++)
+        {
+            if(rollNo[i] == key)
+            {
+                System.out.println("Roll no " + key + " is " + name[i]);
+                break;
+            }
+        }
+
+
+    }
+}
+
+
+
+
+
+/*
+    22) WAP to search all the names starting with 'Y' character
+*/
+
+public class SearchStartingCharacter
+{
+    public static void main(String args[])
+    {
+        String names[] = {"Yamuna", "Ram", "Yahoo", "Yandex"};
+
+        for(int i=0; i<names.length; i++)
+        {
+            String temp = names[i];
+            if(names[i].charAt(0) == 'Y')
+            {
+                System.out.println(names[i]);
+            }
+        }        
+
+    }
+}
+
+
+
+
+
+
+/*
+    23)WAP to find the sum of the numbers  of left diagonal and sum of the 
+    numbers  of right diagonal of a matrix
+*/
+
+import java.util.Scanner;
+
+public class SumOfDiagonalElements
+{
+    public static void main(String args[])
+    {
+        Scanner read = new Scanner(System.in);
+
+        System.out.print("Enter no of rows: ");
+        int m = read.nextInt();
+        
+        System.out.print("Enter no of columns: ");
+        int n = read.nextInt();
+        
+        if(m != n)
+        {
+            System.out.println("Cloumns and rows should be equal");
+            return;
+        }
+        int arr[][] = new int[m][n];
+
+        System.out.println("Enter array elements ");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<m; j++)
+            {
+                System.out.print("A [" + i + "][" + j + "] ");
+                arr[i][j] = read.nextInt();
+            }
+        }
+        System.out.println();
+        System.out.println("Original Matix");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        int LeftDiagonalSum = 0;
+        int RightDiagonalSum = 0;
+
+        int k = n-1;
+        for(int i=0; i<n; i++,k--)
+        {
+            LeftDiagonalSum += arr[i][i];
+            RightDiagonalSum += arr[i][k];
+        }
+
+        System.out.println(LeftDiagonalSum);
+        System.out.println(RightDiagonalSum);
+        
+        
+    }
+}
+
+
+
+
+
+/*
+    24) wap to consider a square matrix and find whether the given matrix 
+    is symmentric matrix or not 
+*/
+
+import  java.util.Scanner;
+
+public class SymmetricMatrix
+{
+    public static void main(String args[])
+    {
+        Scanner read = new Scanner(System.in);
+
+        System.out.println("Enter no of rows ");
+        int m = read.nextInt();
+        System.out.println("Enter no of columns ");
+        int n = read.nextInt();
+
+        if(m != n)
+        {
+            System.out.println("Columns and rows should be equal");
+            return;
+        }
+
+        int arr[][] = new int[m][n];
+
+        System.out.println("Enter array elements ");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                System.out.print("A [" + i + "][" + j + "] ");
+                arr[i][j] = read.nextInt();
+            }
+        }
+        System.out.println();
+
+        System.out.println("Original Matrix ");
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        
+        for(int i=0; i<m; i++)
+        {
+            for(int j=0; j<i; j++ )
+            {
+                if(arr[i][j] != arr[j][i])
+                {
+                    System.out.println("Not symmentric");
+                    return;
+                }
+            }
+            
+        }
+
+        System.out.println("Symmetric Matrix");
+    }
+}
