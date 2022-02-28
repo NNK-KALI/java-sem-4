@@ -10,7 +10,7 @@ public class DegreeToRadian
 		BufferedReader read = new BufferedReader(inp);
 		System.out.println("Enter Degrees");
 		float deg = Float.parseFloat(read.readLine());
-		float rad = (float)(deg * Math.PI / 180);
+		float rad = (float)(Math.toRadians(deg));
 		System.out.println(rad + "Rad");
 	}
 }
