@@ -1,3 +1,8 @@
+/*
+    25) WAP to find how many vowels are there in a given statement
+*/
+
+
 import java.util.Scanner;
 
 public class Vowels
