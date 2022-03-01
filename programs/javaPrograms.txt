@@ -74,7 +74,6 @@ calculate the average and display their grades
 
 
 
-
 12 Calculate the GPA and CGPA that particular student has gaineed
 
 
