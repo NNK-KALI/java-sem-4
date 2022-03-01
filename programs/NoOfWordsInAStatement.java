@@ -1,3 +1,8 @@
+/*
+    26) WAP to find how many words are there in a given statement
+*/
+
+
 import java.util.Scanner;
 
 public class NoOfWordsInAStatement
