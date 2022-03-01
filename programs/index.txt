@@ -22,3 +22,5 @@
 22 - SearchStartingCharacter
 23 - SumOfDiagonalElements
 24 - SymmetricMatrix
+25 - Vowles
+26 - NoOfWordsInAStatement
