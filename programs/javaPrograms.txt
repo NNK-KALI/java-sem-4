@@ -74,7 +74,6 @@ calculate the average and display their grades
 
 
 
-
 12 Calculate the GPA and CGPA that particular student has gaineed
 
 
@@ -163,3 +162,25 @@ is symmentric matrix or not
 
 
 26) WAP to find how many words are there in a given statement
+
+
+27) WAP in java to find out which row the more girl are sitting and which row the boys are more and the 
+    boys and girls row should not match (in the same way find out in which row they are equally sitting
+    and which rows the boys are greater than girls, automatically the other rows girls are more than boys)
+
+
+
+28) WAP in java using arrays to arrange the students in the examination hall in given format, i.e 
+    we should arrange one first year student and one third year student in one bench (like for example
+    0 represent first year students and 1 represent third year student)
+    Row1    Row2   Row3
+    1 0      1 0    1 0 
+    0 1      0 1    0 1
+    1 0      1 0    1 0
+    Input (Take the input at run time )
+    1) Take input of how many row are there in the class room (for example 3 rows in the above example)
+    2) Take the input of how many benches in each row (total of 9 benches)
+   
+    Process and output
+    3) Now arrange the students in those benches   
+    4) Find out total of how many first year and how many third students fit in that class room

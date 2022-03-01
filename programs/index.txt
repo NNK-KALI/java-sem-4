@@ -24,3 +24,5 @@
 24 - SymmetricMatrix
 25 - Vowles
 26 - NoOfWordsInAStatement
+27 - BoysAndGirlsInClass2
+28 - ExaminationSittingPattern
