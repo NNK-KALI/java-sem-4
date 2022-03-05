@@ -2,7 +2,6 @@
     25) WAP to find how many vowels are there in a given statement
 */
 
-
 import java.util.Scanner;
 
 public class Vowels
@@ -16,6 +15,7 @@ public class Vowels
         String str = scan.nextLine();
         scan.close();
         int count = 0;
+        
         for(int i=0; i<str.length(); i++)
         {
             for(int j=0; j<vowels.length; j++)
