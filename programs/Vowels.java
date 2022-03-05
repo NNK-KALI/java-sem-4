@@ -27,8 +27,6 @@ public class Vowels
                 }
             }
         }
-        
         System.out.println("No of vowels = " + count);
-
     }
 }
