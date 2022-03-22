@@ -99,6 +99,10 @@ public class Sudoku
 				}
 			}
 		}
+		
+		if(!rowAndColumnCheck(arr))
+			flag = false;
+
 		System.out.println("All conditions satisified: " + flag);		
 	}
 
